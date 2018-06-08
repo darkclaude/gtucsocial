@@ -1,0 +1,16 @@
+<div 
+    class="bg-light profile-cover"
+    [ngStyle]="{
+        'background-image': 'url(' + url + ')',
+        'height': !url?'0px':'200px'
+    }">
+</div>
+<div *ngIf="edit" class="p-2">
+    <button class="btn btn-primary">
+        <input type="file" (change)="previewFiles($event)">
+        Select new cover image
+    </button>
+    <button class="btn btn-success" (click)="uploadImages()" [attr.disabled]="!selectedImages[0]?.src?'':null">Upload</button>
+    <img height="100" [src]="selectedImages[0]?.src" *ngIf="selectedImages[0]?.src" class="mt-3 d-block" alt="">
+    <small *ngIf="selectedImages[0]?.progress">Uploading {{selectedImages[0]?.progress}}%</small>
+</div>

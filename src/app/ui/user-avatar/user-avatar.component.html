@@ -1,0 +1,22 @@
+<div class="float-left bg-secondary avatar-{{size}}">
+    <img 
+        [routerLink]="['/'+(user?.username||username)]"
+        [attr.title]="user?.username" 
+        *ngIf="user?.username||username"
+        [src]="src?src:''">
+    <fio-user-presence *ngIf="uid&&modal" [dotted]="presence" [uid]="uid"></fio-user-presence>
+</div>
+<div class="float-left ml-3" *ngIf="modal">
+    <h6 *ngIf="!followHide" class="user-fullname mt-2 mb-1"><b>{{user?.firstName}} {{user?.lastName}}</b></h6>
+    <p *ngIf="followHide" 
+    [ngClass]="{'bg-secondary': !user?.firstName&&!user?.lastName}"    
+    class="user-fullname mt-2 mb-1 small"><b>{{user?.firstName}} {{user?.lastName}}</b></p>
+    <a *ngIf="user?.username" [routerLink]="['/'+user?.username]">
+        <fio-username [uid]="uid"></fio-username>
+    </a>
+</div>
+<fio-user-follow-button class="float-right mt-2" *ngIf="modal&&!followHide" [followingTo]="uid"></fio-user-follow-button>
+<span class="ml-3" *ngIf="size=='sm'">
+    <fio-username [uid]="uid"></fio-username>
+    <ng-content></ng-content>
+</span>

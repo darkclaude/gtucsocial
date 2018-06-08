@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <nav class="col py-1">
+      <div class="w-100 d-flex">
+        <div *ngIf="!authenticatedUID">
+          <a [routerLink]="['/']" class="">Home</a>
+          <a>Documentation</a>
+        </div>
+        <div *ngIf="authenticatedUID">
+          <a class="" [routerLink]="['/']"><i class="fa fa-home"></i> Home</a>
+          <a class="" [routerLink]="['/notifications']">
+            <i 
+              [ngClass]="{
+                'fa-bell text-warning': notifications?.notifications>0,
+                'fa-bell-o': notifications?.notifications==0
+              }" 
+              class="fa"></i> Notifications
+          </a>
+        </div>
+        <div class="custom-logo">FIO</div>
+        <form class="ml-auto form-inline" *ngIf="authenticatedUID">
+          <div ngbDropdown class="d-inline-block">
+            <div class="d-flex" id="userInfoDropDown" ngbDropdownToggle>
+                <img 
+                height="35"
+                width="35"
+                class="bg-secondary rounded-circle mr-2"
+                placement="bottom" ngbTooltip="Profile and settings"
+                [src]="(userLocal?.avatar)?userLocal?.avatar:''" alt="">
+            </div>
+            <div ngbDropdownMenu aria-labelledby="userInfoDropDown">
+                <button [routerLink]="['/'+userLocal?.username+'/edit']" class="dropdown-item">Edit</button>    
+                <button type="button" (click)="signOutUser()" class="dropdown-item">Log out</button>    
+            </div>
+          </div>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/']">New Post</button>
+        </form>
+        <form class="ml-auto form-inline" *ngIf="!authenticatedUID">
+          <button 
+            *ngIf="!authenticatedUID"
+            [routerLink]="['/']"
+            class="btn btn-sm align-middle btn-link" 
+            type="button">
+              <small>Have an account?</small>
+              Log in
+          </button>
+        </form>
+      </div>
+    </nav>
+  </div>
+</div>

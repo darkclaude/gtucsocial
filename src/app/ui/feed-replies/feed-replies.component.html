@@ -1,0 +1,23 @@
+<div 
+  (click)="mergeNewAddedTopic()" 
+  *ngIf="newPosts?.length>0" 
+  class="btn-sm w-100 rounded-0 btn btn-secondary p-2 text-center"
+>
+  {{newPosts?.length}} new {{(newPosts.length<=1)?'topic':'topics'}}
+</div>
+<fio-feed 
+  *ngFor="let reply of posts" 
+  class=""
+  [ngClass]="{
+    'px-3 pt-3 pb-0': !innerReply,
+    'border-0': innerReply
+  }"
+  [modalOpen]="loadReplies"
+  [innerReplies]="!innerReply"
+  [_id]="reply.id"
+>
+  <fio-feed-replies *ngIf="loadReplies" [innerReply]="true" class="inner-reply" [_id]="reply.id"></fio-feed-replies>
+</fio-feed>
+<div *ngIf="posts?.length>3" class="d-flex justify-content-center p-2">
+  <button *ngIf="posts?.length>3" class="btn btn-primary" (click)="onScroll()">Load more..</button>
+</div>

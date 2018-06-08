@@ -1,0 +1,14 @@
+<fio-feed-modal [noReplies]="true" *ngIf="(topic)?.replyingTopicId" [_id]="(topic)?.replyingTopicId"></fio-feed-modal>
+<div *ngIf="noReplies">
+    <fio-feed 
+    [modalOpen]="true"
+    class="p-3"
+    [_id]="_id">
+    </fio-feed>
+</div>    
+<div *ngIf="!noReplies">
+    <fio-feed 
+    [modalOpen]="true" [_id]="_id" [modal]="true"></fio-feed>
+    <fio-feed-form class="p-3" [replyingTopicId]="_id"></fio-feed-form>
+</div>
+<fio-feed-replies [loadReplies]="true" class="d-block" *ngIf="!noReplies" [_id]="_id"></fio-feed-replies>

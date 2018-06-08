@@ -1,0 +1,8 @@
+<ngb-alert 
+  (close)="closeAlert()" 
+  [dismissible]="dismissible" 
+  [type]="type" 
+  *ngIf="toggleAlert"
+>
+  <ng-content></ng-content>
+</ngb-alert>

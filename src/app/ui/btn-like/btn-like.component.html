@@ -1,0 +1,7 @@
+<button 
+  (click)="like()"
+  class="btn btn-link" [attr.disabled]="(likeThrottle&&!disabledAction)?'':null">
+  <i 
+  [ngClass]="{'fa-heart text-danger': userLiked, 'fa-heart-o': !userLiked}"
+  class="fa"></i> <small><ng-content></ng-content></small>
+</button>

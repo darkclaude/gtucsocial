@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <fio-user-info [uid]="userLocal?.uid" class="border-1 bg-light py-2 px-3 mb-3">
+        <div *ngIf="!userLocal?.verified" class="alert alert-warning">
+          {{userLocal?.email}} is not verified. Please verify.
+        </div>
+        <button 
+          class="btn btn-outline-primary" 
+          (click)="gotoEditProfile('/' + userLocal?.username + '/edit')"
+        >
+          Edit profile
+        </button>
+      </fio-user-info>
+      <div class="border-1 bg-light p-3 mb-3">
+        <h5>Trending topics</h5>
+        <div class="d-flex flex-column" *ngFor="let news of trendingNews; let last = last;">
+          <a [ngClass]="{'border-0': last}" (click)="openTopic(news?.id)" class="py-2 w-100 border-1 border-top-0 border-left-0 border-right-0">
+            {{news.content}}
+            <small class="ml-2">{{news?.date|date}}</small>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <fio-feed-form *ngIf="userLocal?.uid" class="bg-secondary px-3 pt-3 pb-1"></fio-feed-form>
+      <fio-user-feed [uid]="lastUserUID" [url]="URL"></fio-user-feed>
+    </div>
+    <div class="col-lg-3">
+      <div class="border-1 bg-light p-3 mb-3">
+        <small>coming soon...</small>
+        <button class="w-100 btn text-left btn-secondary rounded" disabled="true">All Posts</button>
+        <button class="w-100 btn text-left btn-link" disabled="true">Post with photos</button>
+        <button class="w-100 btn text-left btn-link" disabled="true">Post with videos</button>
+        <button class="w-100 btn text-left btn-link" disabled="true">Search</button>
+        <hr>
+        <button class="w-100 btn text-left btn-link" disabled="true">Post with updates</button>
+        <button class="w-100 btn text-left btn-link" disabled="true">Post with comments</button>
+      </div>
+      <div class="border-1 bg-light p-3">
+        <h6>Ads</h6>
+        <p>Get the FIO social app before price goes up!</p>
+        <button class="btn btn-success">Download app</button>
+      </div>
+    </div>
+  </div>
+</div>

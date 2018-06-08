@@ -1,0 +1,6 @@
+<div class="d-flex w-100">
+  <fio-user-avatar [uid]="topic?.created_by" size="xs" ></fio-user-avatar>
+</div>
+<a (click)="openTopic()">
+  <fio-username [uid]="topic?.created_by"></fio-username> commented to your topic
+</a>

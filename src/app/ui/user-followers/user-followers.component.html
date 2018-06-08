@@ -1,0 +1,22 @@
+<div *ngIf="onlyAvatar">
+    <p>
+        <i class="fa fa-user"></i>
+        Followers
+    </p>
+    <p *ngIf="followers.length==0">No Followers</p>
+    <div class="d-flex">
+        <div *ngFor="let follower of followers">
+            <fio-user-avatar
+            class="d-flex mr-1" size="xs" [uid]="follower?.uid"></fio-user-avatar>
+        </div>
+    </div>
+</div>
+<div *ngIf="!onlyAvatar" class="border-1 bg-light border-top-0">
+    <div class="row">
+        <div class="col-lg-6" *ngFor="let follower of followers">
+            <fio-user-info class="p-3" [uid]="follower?.uid">
+                <fio-user-follow-button [followingTo]="follower?.uid"></fio-user-follow-button>
+            </fio-user-info>
+        </div>
+    </div>
+</div>

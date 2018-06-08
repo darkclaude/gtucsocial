@@ -1,0 +1,59 @@
+html,body{
+    background-color: #fafafa;
+}
+.navbar{
+    background-color: #fff;
+    /* box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06); */
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+.user-card{
+    border: 0;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+    /* box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06); */
+}
+.following-action{
+    position: absolute;
+    top: 32px;
+    left: 130px;    
+}
+.following-action .btn{
+    border-radius: 32px;
+}
+.feeds-nav,
+.media,
+.feeds-form{
+    padding: 18px;
+    /* margin-bottom: 12px; */
+    border:1px solid #eee;
+    border-bottom: 0; 
+    background-color: #fff;
+    /* box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06); */
+}
+.nav-link,
+.btn-link{
+    color: #727272;
+}
+.nav-link.active{
+    color:#000;
+}
+.btn-like{
+    background-color: red;
+    border-radius: 50% !important;
+    width: 35px;
+    color: #fff;
+    padding: 0; 
+    height: 35px; 
+    margin-right: 45px;
+}
+.btn-like span{
+    position: absolute;
+    color: #221122;
+    top: 10px;
+    left: 50px;
+    font-size: 13px;
+
+}

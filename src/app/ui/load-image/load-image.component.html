@@ -1,0 +1,4 @@
+<a *ngIf="!urlOpenDisable" target="_blank" [attr.href]="src">
+    <img *ngIf="src" [src]="src" alt="">
+</a>
+<img *ngIf="urlOpenDisable&&src" [src]="src" alt="">

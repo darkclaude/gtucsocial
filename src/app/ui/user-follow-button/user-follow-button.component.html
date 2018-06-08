@@ -1,0 +1,21 @@
+<button 
+    (click)="followToUser()" 
+    *ngIf="!user_followed" 
+    class="btn btn-primary"
+    [attr.disabled]="(uid&&followingTo!=uid)?null:''"
+>
+    Follow
+</button>
+<button 
+    (click)="unFollowToUser()" 
+    *ngIf="user_followed"
+    class="btn"
+    [ngClass]="{
+        'btn-danger': unsub,
+        'btn-success': !unsub
+    }"
+    (mouseenter)="unsub=true"
+    (mouseleave)="unsub=false"
+>
+    {{unsub?'Unfollow':'Following'}}
+</button>

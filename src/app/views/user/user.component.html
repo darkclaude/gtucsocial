@@ -1,0 +1,40 @@
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-lg-3">
+            <fio-user-info [uid]="user?.uid" class="border-1 p-3 bg-light d-block mb-3">
+                <fio-user-follow-button [followingTo]="user?.uid"></fio-user-follow-button>
+            </fio-user-info>
+            <fio-user-followers *ngIf="user?.uid" url="followers" [limit]="6" [onlyAvatar]="true" [uid]="user?.uid" class="border-1 p-3 bg-light mb-3"></fio-user-followers>
+            <fio-user-media [uid]="user?.uid" class="border-1 p-3 bg-light mb-3"></fio-user-media>
+        </div>
+        <div class="col-lg-6">
+            <fio-user-cover [url]="user?.coverImageURL" [edit]="false"></fio-user-cover>
+            <nav class="bg-light border-1 border-top-0 nav flex-column flex-sm-row justify-content-start">
+                <a [ngClass]="{'bg-primary active': !childRoute}" class="flex-sm-fill text-sm-center nav-link p-2" [routerLink]="['/'+user?.username]">
+                    Posts
+                    <div class="badge badge-sm">{{user?.posts_count}}</div>
+                </a>
+                <a [ngClass]="{'bg-primary active': childRoute=='replies'}" class="flex-sm-fill text-sm-center nav-link p-2" [routerLink]="['/'+user?.username+'/replies']">
+                    Replies
+                    <div class="badge badge-sm">{{user?.replies_count}}</div>
+                </a>
+                <a [ngClass]="{'bg-primary active': childRoute=='media'}" class="flex-sm-fill text-sm-center nav-link p-2" [routerLink]="['/'+user?.username+'/media']">
+                    Media
+                    <div class="badge badge-sm">{{user?.media_count}}</div>
+                </a>
+                <a [ngClass]="{'bg-primary active': childRoute=='likes'}" class="flex-sm-fill text-sm-center nav-link p-2" [routerLink]="['/'+user?.username+'/likes']">
+                    Likes
+                    <div class="badge badge-sm">{{user?.likes_count}}</div>
+                </a>
+            </nav>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-lg-3">
+            <div class="border-1 bg-light p-3">
+                <h6>Ads</h6>
+                <p>Get the FIO social app before price goes up!</p>
+                <button class="btn btn-success">Download app</button>
+            </div>
+        </div>
+    </div>
+</div> 

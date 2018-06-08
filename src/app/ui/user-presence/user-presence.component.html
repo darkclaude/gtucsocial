@@ -1,0 +1,8 @@
+{{!dotted?online?.state:''}}
+<span *ngIf="dotted"
+    [ngClass]="{
+        'bg-danger': online?.state!='online',
+        'bg-success': online?.state=='online'
+    }"
+    [attr.title]="online?.state">
+</span>

@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="border-1 bg-light p-3">
+        <div class="text-left">
+          <b>FIO/<small>social app</small></b>
+        </div>
+        <h6 class="mt-2 mb-1 text-primary">
+          {{!registerForm?'LOGIN':'REGISTER'}}
+        </h6>
+        <p>
+          Current demo version
+          <span class="badge badge-success">v.1.0.5 beta</span>
+        </p>
+        <hr>
+        <fio-user-register-form *ngIf="registerForm">
+          <button type="button" (click)="registerForm = false" class="btn btn-outline-primary">Login</button>
+        </fio-user-register-form>
+        <fio-user-login-form *ngIf="!registerForm">
+          <button type="button" (click)="registerForm = true" class="btn btn-outline-primary">Register</button>
+        </fio-user-login-form>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div 
+        class="border-1 bg-light p-3">
+        <h2 class="mt-0 text-primary">
+          FIO / <small>social app</small>
+        </h2>
+        <p>Twitter like app created with latest technologies such as <span class="badge badge-secondary">Angular 4</span>, <span class="badge badge-secondary">FireStore</span>, <span class="badge badge-secondary">RxJs</span>, <span class="badge badge-secondary">NodeJs</span> and others. App demo version is deployed with firebase hosting.</p>
+      </div>
+      <div class="border-1 border-top-0 bg-light p-3">
+        <h5 class="text-warning">**NOTE**</h5>
+        <p>Please make sure currently app released under beta version and there will be updates frequently every new created features increases the app price <span class="d-inline bg-secondary">if you already purchased you’ll get the notification about updates without any issues.</span></p>
+        <a href="https://codecanyon.net/item/fio-social-app" class="btn btn-success">Buy at CodeCanyon 20$</a>
+      </div>
+      <div class="border-1 border-top-0 bg-light p-3">
+        <p>
+          <a href="https://trello.com/b/e9ajJUYe/fio-social-app">ToDo list available at Trello (public)</a>
+        </p>
+        <!-- <p>
+          <a href="">For BitBucket please let as know your bitbucket email after you downloaded it. (private)</a>
+        </p> -->
+        <hr>
+        <h5>Features(updating)</h5>
+        <ul>
+          <li><span>User login with email and username</span></li>
+          <li><span>User register implemented with checking unique username</span></li>
+          <li><span>User edit profile</span></li>
+          <li><span>User presence (</span><em><span>functions</span></em><span>)</span></li>
+          <li><span>User dedicated landing page</span></li>
+          <li><span>User follow gets latest 10 topics from user and puts user feed (</span><em><span>functions</span></em><span>)</span></li>
+          <li><span>User unfollow removes all the user feeds (</span><em><span>functions</span></em><span>)</span></li>
+          <li><span>User new topics pushes followers feeds (</span><em><span>functions</span></em><span>)</span></li>
+          <li><span>Topic replies pushes notification to user (</span><em><span>functions</span></em><span>)</span></li>
+          <li><span>Twitter like topic view and replies</span></li>
+          <li><span>Topic likes (</span><em><span>functions</span></em><span>)</span></li>
+          <li><span>New topic replies will be stored user replies section</span></li>
+        </ul>
+        <h5>TODO for the next 6 weeks</h5>
+        <ul>
+          <li><span>User delete profile (free)</span></li>
+          <li><span>User private messages ($)</span></li>
+          <li><span>New push message notification (free)</span></li>
+          <li><span>SEO friendly topic urls ($)</span></li>
+          <li><span>Search with algolia ($)</span></li>
+          <li><span>Server side rendering ($)</span></li>
+          <li><span>Admin dashboard ($)</span></li>
+          <li><span>Improved security ($)</span></li>
+        </ul>
+        <h5>Request for features</h5>
+        <ul>    
+          <li><span>Request by comment for new features if it suits our needs we will create it</span></li>
+          <li><span>Accepted requested features will be added todo list and created</span></li>
+        </ul>
+        <hr>
+        <h6>UPDATES</h6>
+        <p><b>v.1.0.5 beta</b></p>
+        <ul>
+          <li>Improved replies</li>
+          <li><span>User delete created its topics</span></li>
+          <li>Proper documentation</li>
+          <li>and other small bugs which might appear</li>
+        </ul>
+        <p><b>v.1.0.3 beta</b></p>
+        <ul>
+          <li>username mouseover info</li>
+          <li>`ng build --prod` fixing bugs (bug fixing)</li>
+          <li>User cover and image upload improving (bug fixing)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="border-1 bg-light p-3">
+        <h6>Famous users</h6>
+        <div *ngFor="let user of recentActiveUsers" class="d-flex py-2">
+          <fio-user-avatar 
+          [presence]="true" 
+          size="md" 
+          [followHide]="true"
+          class="mr-2"
+          [ngClass]="{'ml-0 clearfix': true}" 
+          [uid]="user?.uid"
+          [modal]="true">
+          </fio-user-avatar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

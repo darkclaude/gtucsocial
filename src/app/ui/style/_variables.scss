@@ -1,0 +1,57 @@
+$theme-colors: (
+    primary: #303F9F,
+    secondary: #f2f3ff,
+    success: #43a047,
+    info: #00acc1,
+    warning: #ffb300,
+    danger: #FF4081,
+    light: #ffffff,
+    dark: #757575
+);
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: #f8f8fa;
+$body-color: rgba(33, 33, 33, 0.86);
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-gutter-width: 15px !default;
+
+// Cards
+$card-spacer-y: 15px;
+$card-spacer-x: 15px;
+$card-border-radius: 0;
+$card-border-width: 0;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background and border color.
+
+$input-btn-padding-y: 0.32rem;
+$input-btn-padding-x: 1rem;
+$input-btn-padding-y-sm: 0.32rem;
+$input-btn-padding-x-sm: 1rem;
+// $input-btn-line-height:       $line-height-base !default;
+
+
+// $input-btn-padding-y-sm:      .25rem !default;
+// $input-btn-padding-x-sm:      .5rem !default;
+// $input-btn-line-height-sm:    $line-height-sm !default;
+
+// $input-btn-padding-y-lg:      .5rem !default;
+// $input-btn-padding-x-lg:      1rem !default;
+// $input-btn-line-height-lg:    $line-height-lg !default;
+
+$btn-font-weight: bold;
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: 100px;
+$btn-border-radius-sm: 100px;
+// $btn-border-radius-lg:        $border-radius-lg !default;
+// $btn-border-radius-sm:        $border-radius-sm !default;
+
+$modal-lg:                          800px !default;
+$modal-md:                          620px !default;
+// $modal-sm:                          300px !default;

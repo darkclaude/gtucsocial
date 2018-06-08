@@ -1,0 +1,76 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-body p-0">
+        <fio-feed [_id]="_id" [deleteModal]="true" class="p-3"></fio-feed>
+    </div>
+    <div class="modal-footer p-3 border-0">
+        <button type="button" class="btn btn-danger" (click)="c(post?.replyingTopicId)">Confirm and delete</button>
+    </div>
+</ng-template>
+<div class="media" #media>
+    <div *ngIf="innerReplies&&post?.replies_count>0"
+        [ngStyle]="{
+            'background-color': indecatorElemes.color,
+            'height': indecatorElemes.height
+        }"
+        class="indicator" #indicator></div>
+    <div class="p-5 text-center" *ngIf="loadingPost">Loading...</div>
+    <div class="media-body" *ngIf="!loadingPost" [ngClass]="{'p-0': modal}">
+        <fio-user-avatar 
+            *ngIf="!post?.deleted"
+            [presence]="modal" 
+            style="margin-left:-70px;" 
+            [size]="modal?'md':'sm'" 
+            class="mr-2"
+            [ngClass]="{'ml-0 clearfix': modal}" 
+            [uid]="post?.created_by"
+            [modal]="modal">
+            <small *ngIf="!modal">{{post?.date|amTimeAgo}}</small>
+            <i *ngIf="(post?.private)&&!modal" class="fa fa-lock float-right mt-1"></i>
+        </fio-user-avatar>
+        <span *ngIf="post?.replyingTopicId&&!post?.deleted" class="badge badge-warning py-0">
+            <i class="fa fa-reply"></i> replied
+        </span>
+        <p class="alert alert-info" *ngIf="post?.deleted">
+            Post is deleted by User
+        </p>
+        <p (click)="openTopicModal(_id)" class="my-0">
+            {{post?.content}}
+        </p>
+        <div class="d-flex py-2 flex-wrap">
+            <fio-load-image 
+            [ngStyle]="{'width': 100/((post?.images?.length)==1?1:3)+'%'}"
+            *ngFor="let img of post?.images" [_id]="img"></fio-load-image>
+        </div>
+        <div class="py-2" *ngIf="modal">
+            <small>{{post?.date|amTimeAgo}}</small>
+        </div>
+        <div *ngIf="modal">
+            <hr>
+            <div class="d-flex align-items-center">
+                <h6 class="my-0 mr-2">
+                    Replies {{post?.replies_count}}
+                </h6>
+                <span class="mr-2">|</span>
+                <h6 class="my-0 mr-2">
+                    Likes {{post?.likes_count}}
+                </h6>
+                <span class="mr-2">|</span>
+                <fio-feed-liked-users [_id]="_id"></fio-feed-liked-users>
+            </div> 
+            <hr>
+        </div>
+        <div *ngIf="!post?.deleted&&!deleteModal" class="d-flex">
+            <fio-btn-like [_id]="_id">
+                {{post?.likes_count}}
+            </fio-btn-like>
+            <button (click)="openTopicModal(_id)" type="button" class="btn btn-link">
+                <i class="fa fa-comments-o"></i>
+                <small>{{post?.replies_count}}</small>
+            </button>
+            <button (click)="openTopicModal(_id)" type="button" class="btn btn-link"><i class="fa fa-share"></i></button>
+            <button 
+                *ngIf="!modalOpen&&(post?.created_by==uid)" type="button" class="btn btn-link" (click)="deleteTopicConfirm(content)"><i class="fa fa-remove"></i></button>
+        </div>
+    </div>
+</div>
+<ng-content></ng-content>

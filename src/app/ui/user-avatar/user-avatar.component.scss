@@ -1,0 +1,45 @@
+:host{
+    display: block;
+    position: relative;
+    .user-fullname{
+        min-height: 18px;
+        min-width: 120px;
+    }
+    .avatar-lg{
+        width: 120px;
+        height: 120px;
+    }
+    .avatar-md{
+        width: 56px;
+        height: 56px;
+    }
+    .avatar-sm{
+        width: 54px;
+        height: 54px;
+    }
+    .avatar-xs{
+        width: 35px;
+        height: 35px;
+    }
+    .avatar-lg,
+    .avatar-md,
+    .avatar-sm,
+    .avatar-xs{
+        overflow: hidden;
+        border-radius: 50%;
+        img{
+            width: 100%;
+        }
+        fio-user-presence{
+            &/deep/span{
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                display: block;
+                top: 40px;
+                left: 42px;
+                position: absolute;
+            }
+        }
+    }
+}

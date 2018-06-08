@@ -1,0 +1,13 @@
+<ng-template #popContent>
+    <fio-user-info 
+    (mouseenter)="popoverOpen(true)"
+    (mouseleave)="popoverClose(false)"
+    [uid]="uid" [noFollow]="true"></fio-user-info>
+</ng-template>
+<a 
+    #a="ngbPopover"
+    [ngbPopover]="popContent"
+    placement="bottom"
+    (mouseenter)="popoverToggle(true)"
+    (mouseleave)="popoverToggle(false)"
+    [routerLink]="['/'+user?.username]">@{{user?.username}}</a>

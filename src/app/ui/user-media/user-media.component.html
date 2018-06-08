@@ -1,0 +1,15 @@
+<div>
+    <p>
+        <i class="fa fa-image"></i>
+        <span>Photos</span>
+    </p>
+    <div class="d-flex py-2 flex-wrap">
+        <fio-load-image 
+        style="width:33.333%;" 
+        class="float-left"
+        *ngFor="let img of media" 
+        [_id]="img?.key"
+        [urlOpenDisable]="true"
+        (click)="openTopic(img?.id)"></fio-load-image>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div [ngClass]="{'text-center d-inline': styleTwo}">
+    <div class="d-flex flex-column align-items-center py-2">
+        <fio-user-avatar [src]="doc?.avatar" [username]="doc?.username"></fio-user-avatar>
+        <div class="h5 my-1">{{doc?.firstName}} {{doc?.lastName}}</div>
+        <h6 class="mt-0">
+            <small
+                [ngClass]="{
+                    'text-success': doc?.verified,
+                    'text-warning': !doc?.verified
+                }"
+            >
+                <i 
+                    [ngClass]="{
+                        'fa-check-circle': doc?.verified,
+                        'fa-times-circle': !doc?.verified
+                    }"
+                    class="fa"></i>
+            </small>
+            <a [routerLink]="['/'+doc?.username]">@{{doc?.username}}</a>
+            | 
+            <i><fio-user-presence [uid]="uid" *ngIf="uid"></fio-user-presence></i>
+        </h6>
+        <div *ngIf="!noFollow" class="d-inline mt-3 text-center">
+            <ng-content></ng-content>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <ul class="nav justify-content-between flex-nowrap">
+            <li class="nav-item">
+                <a [routerLink]="['/'+doc?.username+'']" class="nav-link p-1 small text-center">POSTS <span class="d-block">{{doc?.posts_count}}</span></a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/'+doc?.username+'/followers']" class="nav-link p-1 small text-center">FOLLOWERS <span class="d-block">{{doc?.followers_count}}</span></a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/'+doc?.username+'/following']" class="nav-link p-1 small text-center">FOLLOWING <span class="d-block">{{doc?.following_count}}</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

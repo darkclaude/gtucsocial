@@ -1,0 +1,51 @@
+<form [formGroup]="usernameUniqueForm">
+  <label for="username">Username</label>
+  <div class="input-group mb-2 mb-sm-0">
+    <div class="input-group-addon">@</div>
+    <input 
+      formControlName="displayName" 
+      [ngClass]="{
+        'is-valid': usernameUniqueForm.get('displayName').dirty && (
+          !usernameUniqueForm.get('displayName').hasError('required') ||
+          !usernameUniqueForm.get('displayName').hasError('minlength') ||
+          !usernameUniqueForm.get('displayName').hasError('isUserNameUnique')
+        ),
+        'is-invalid': 
+          usernameUniqueForm.get('displayName').dirty && (
+            usernameUniqueForm.get('displayName').hasError('required') ||
+            usernameUniqueForm.get('displayName').hasError('minlength') ||
+            usernameUniqueForm.get('displayName').hasError('isUserNameUnique')
+          )
+      }"
+      id="username"
+      type="text" 
+      class="form-control" 
+      placeholder="Username" 
+      [attr.disabled]="disabled"
+      [attr.value]="value"
+      required>
+  </div>
+  <div *ngIf="searching" class="text-info">searching...</div>
+  
+  <div class="text-success d-block" 
+    *ngIf="usernameUniqueForm.get('displayName').dirty && 
+    usernameUniqueForm.get('displayName').valid">
+    Username @{{usernameUniqueForm.get('displayName').value}} is available
+  </div>
+  <div class="invalid-feedback d-block" 
+    *ngIf="usernameUniqueForm.get('displayName').dirty && 
+    usernameUniqueForm.get('displayName').hasError('required')">
+    Username is required
+  </div>
+  <div class="invalid-feedback d-block" 
+    *ngIf="usernameUniqueForm.get('displayName').dirty && 
+    usernameUniqueForm.get('displayName').hasError('minlength')">
+    Minimum of 4 characters
+  </div>
+  <div class="invalid-feedback d-block" 
+    *ngIf="
+      usernameUniqueForm.get('displayName').dirty && 
+      usernameUniqueForm.get('displayName').hasError('isUserNameUnique')">
+      Username already exists.
+  </div>
+</form>

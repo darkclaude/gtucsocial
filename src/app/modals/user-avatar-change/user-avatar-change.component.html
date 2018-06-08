@@ -1,0 +1,7 @@
+<div class="upload-wrap" >
+    <input id="custom-input" type="file" *ngIf="!data.image" (change)="fileChangeListener($event)">
+    <i class="fa fa-upload upload-icon" *ngIf="!data.image"></i>
+    <img-cropper [ngClass]="{'fileAttached': data.image}" #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+    <br>
+</div>
+<button class="btn btn-primary" (click)="uploadAvatar()" *ngIf="data.image">Upload image</button>

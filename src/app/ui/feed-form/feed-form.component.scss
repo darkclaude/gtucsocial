@@ -1,0 +1,36 @@
+:host{
+    display: block;
+    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    // box-shadow: 0 2px 8px #eee;
+    // background: #fff;
+    border: 1px solid #eee;
+    // background-color: #fafafa;
+    button{
+        position: relative;
+        overflow: hidden;
+        input{
+            left: 0;
+            top: 0;
+            width: 100%;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+            position: absolute;
+        }
+    }
+    .upload-images{
+        position: relative;
+        span{
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            background-color: #fff;
+            z-index: 2;
+            top: 5px;
+            right: 5px;
+        }
+    }
+}

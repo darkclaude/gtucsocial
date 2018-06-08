@@ -1,0 +1,54 @@
+:host{
+    display: block;
+    background-color: rgba(255, 255, 255, 0.94);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    border-bottom: 1px solid #eee;
+    &/deep/.dropdown-toggle::after{display: none}
+    .custom-logo{
+        position: absolute;
+        top: 3px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+        line-height: 38px;
+        text-align: center;
+        font-weight: 900;
+        border-radius: 50%;
+        border:1px solid #eee;
+        z-index: 1;
+        background-size: cover;
+        background-position: center;
+        small{
+            font-weight: 300;
+            font-size: 11px;
+        }
+    }
+    &/deep/a{
+        color: rgba(0, 0, 0, 0.42) !important;
+        line-height: 40px;
+        margin-right: 18px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    &/deep/i{
+        font-size: 16px;
+    }
+    .createBtn{
+        border-radius: 100px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 20px;
+        padding: 6px 16px;
+        text-align: center;
+        white-space: nowrap;
+        position: relative;
+    }
+}

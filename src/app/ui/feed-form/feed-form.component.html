@@ -1,0 +1,43 @@
+
+<div class="d-flex">
+    <div class="w-100">
+        <textarea 
+            name="content" 
+            class="form-control" 
+            [(ngModel)]="newPost.content" 
+            placeholder="Write something cool..."
+            [attr.maxLength]="140"
+            [attr.disabled]="(localUser&&!posting)?null:''">
+        </textarea>
+        <div class="d-flex w-100 text-right small">
+            <button class="btn btn-link mr-auto" [attr.disabled]="(localUser&&!posting)?null:''">
+                <i class="fa fa-image"></i>
+                <input [attr.disabled]="(localUser&&!posting)?null:''" type="file" (change)="previewFiles($event)" multiple>
+            </button>
+            {{newPost?.content?.length||0}}/140
+        </div>
+        <!-- <button disabled="true" class="btn btn-link" >
+            <i 
+                [ngClass]="{
+                    'fa-lock': newPost.private,
+                    'fa-unlock': !newPost.private
+                }"
+                class="fa"></i>
+        </button> -->
+        <div class="d-flex flex-wrap mb-3" *ngIf="selectedImages?.length>0">
+            <div *ngFor="let img of selectedImages" class="upload-images mr-2 mb-2">
+                <img
+                    class="rounded"
+                    height="100" 
+                    width="100" 
+                    [src]="img.src" alt="">
+                <p *ngIf="img.progress>0"><ngb-progressbar showValue="true" type="success" [value]="img.progress"></ngb-progressbar></p>
+                <span *ngIf="!posting" class="fa fa-close" (click)="removeSelectedImage(img)"></span>
+            </div>
+        </div>
+    </div>        
+    <div class="ml-2">
+        <button [attr.disabled]="(localUser&&!posting)?null:''" 
+        class="btn btn-primary" (click)="createNewPost()" >Post</button>                     
+    </div>
+</div>
