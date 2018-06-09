@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyBZ8Uc0N_vSrmijl5pUDtI-YOYyHfZgMs4",
-    authDomain: "gtuctwitter.firebaseapp.com",
-    databaseURL: "https://gtuctwitter.firebaseio.com",
-    projectId: "gtuctwitter",
-    storageBucket: "gtuctwitter.appspot.com",
-    messagingSenderId: "311254545104"
+    apiKey: 'AIzaSyBZ8Uc0N_vSrmijl5pUDtI-YOYyHfZgMs4',
+    authDomain: 'gtuctwitter.firebaseapp.com',
+    databaseURL: 'https://gtuctwitter.firebaseio.com',
+    projectId: 'gtuctwitter',
+    storageBucket: 'gtuctwitter.appspot.com',
+    messagingSenderId: '311254545104'
   }
 };

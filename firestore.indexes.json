@@ -1,14 +1,114 @@
 {
-  // Example:
-  //
-  // "indexes": [
-  //   {
-  //     "collectionId": "widgets",
-  //     "fields": [
-  //       { "fieldPath": "foo", "mode": "ASCENDING" },
-  //       { "fieldPath": "bar", "mode": "DESCENDING" }
-  //     ]
-  //   }
-  // ]
-  "indexes": []
+	"indexes": [{
+		"collectionId": "user",
+		"fields": [{
+			"fieldPath": "username",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "username",
+			"mode": "DESCENDING"
+		}, {
+			"fieldPath": "followers_count",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "followers_count",
+			"mode": "DESCENDING"
+		}]
+	}, {
+		"collectionId": "users_uid",
+		"fields": [{
+			"fieldPath": "username",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "username",
+			"mode": "DESCENDING"
+		}]
+	}, {
+		"collectionId": "user/{uid}/feeds",
+		"fields": [{
+				"fieldPath": "date",
+				"mode": "ASCENDING"
+			}, {
+				"fieldPath": "date",
+				"mode": "DESCENDING"
+			}, {
+				"fieldPath": "uid",
+				"mode": "ASCENDING"
+			},
+			{
+				"fieldPath": "uid",
+				"mode": "DESCENDING"
+			}
+		]
+	}, {
+		"collectionId": "user/{uid}/posts",
+		"fields": [{
+			"fieldPath": "date",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "date",
+			"mode": "DESCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "DESCENDING"
+		}]
+	}, {
+		"collectionId": "user/{uid}/media",
+		"fields": [{
+			"fieldPath": "date",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "date",
+			"mode": "DESCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "DESCENDING"
+		}]
+	}, {
+		"collectionId": "user/{uid}/likes",
+		"fields": [{
+			"fieldPath": "date",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "date",
+			"mode": "DESCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "DESCENDING"
+		}]
+	}, {
+		"collectionId": "posts",
+		"fields": [{
+			"fieldPath": "likes_count",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "likes_count",
+			"mode": "DESCENDING"
+		}]
+	}, {
+		"collectionId": "media",
+		"fields": [{
+			"fieldPath": "uid",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "uid",
+			"mode": "DESCENDING"
+		}, {
+			"fieldPath": "date",
+			"mode": "ASCENDING"
+		}, {
+			"fieldPath": "date",
+			"mode": "DESCENDING"
+
+		}]
+	}]
 }
